@@ -4,35 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cote D'ivoire</title>
-    <meta name="description"
-        content="Cote D'Ivoire stats like te weather and population responsive to different device widths">
+    <title>WeatherWizard</title>
+    <meta name="description" content="Weather forecast and current weather conditions ">
     <meta name="author" content="Tadiwanashe Sean Dombe">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
     <link href="styles/index-large.css" rel="stylesheet">
     <link href="styles/index.css" rel="stylesheet">
-    <script src="scripts/index.js" defer></script>
+    <!-- <script src="scripts/index.js" defer></script> -->
 
 </head>
 
 <body>
     <header>
         <!-- remov this afetr css is complete -->
-        <h1 id="cityName">Harare</h1>
+        <h1 id="cityName">harare</h1>
     </header>
     <main>
-        <section class="weather">
-            <h2>Weather</h2>
-            <span class="weather-svg">
-            </span>
-            <p><strong>Temperature: </strong><span id="temperature"></span></p>
-            <p><strong>Condition: </strong><span id="condition"></span></p>
-            <p><strong>Wind: </strong><span id="wind"></span></p>
-            <p><strong>Wind Chill: </strong><span id="windchill"></span></p>
-        </section>
+        <div class="weather">
+            <div class="card">
+                <h2 class="date">Today</h2>
+                <div class="summary">
+                    <figure>
+                        <img src="images/weather.svg" alt="weather icon" class="weather-icon" width="130" height="110">
+                        <figcaption class="description"> Description</figcaption>
+                    </figure>
+                    <span ids="condition">
+                        25*C
+                    </span>
 
+                </div>
+
+                <div class="details">
+
+                    <p><strong>Feels like: </strong><span id="feels-like"></span></p>
+                    
+                    <p><strong>Humidity: </strong><span id="humidity"></span></p>
+
+                    <p><strong>Pressure: </strong><span id="pressure"></span></p>
+
+                    <p><strong>Temperature: </strong><span id="temperature"></span></p>
+
+                    <p><strong>UV: </strong><span id="uv"></span></p>
+
+                    <p><strong>Wind: </strong><span id="wind"></span></p>
+
+                    <p><strong>Wind Chill: </strong><span id="windchill"></span></p>
+
+                </div>
+            </div>
+<!-- 
+            <div class="card">
+                <h2 class="date">Today</h2>
+                <div class="summary">
+                    <figure>
+                        <img src="images/weather.svg" alt="weather icon" class="weather-icon" width="130" height="110">
+                        <figcaption class="description"> Description</figcaption>
+                    </figure>
+                    <span class="conition">
+                        25*C
+                    </span>
+
+                </div>
+
+                <div class="details">
+
+                    <p><strong>Feels like: </strong><span id="feels-like"></span></p>
+                    
+                    <p><strong>Humidity: </strong><span id="humidity"></span></p>
+
+                    <p><strong>Pressure: </strong><span id="pressure"></span></p>
+
+                    <p><strong>Temperature: </strong><span id="temperature"></span></p>
+
+                    <p><strong>UV: </strong><span id="uv"></span></p>
+
+                    <p><strong>Wind: </strong><span id="wind"></span></p>
+
+                    <p><strong>Wind Chill: </strong><span id="windchill"></span></p>
+
+                </div>
+            </div> -->
+
+        </div>
     </main>
     <footer>
         <p>
