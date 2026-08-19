@@ -1,0 +1,4 @@
+domains:
+  - weather-app
+php_version: "8.5"
+node_version: "22"

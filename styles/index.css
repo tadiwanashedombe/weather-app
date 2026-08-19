@@ -1,0 +1,28 @@
+@media only screen and (max-width: 640px) {
+
+    .weather {
+        text-align: center;
+        box-shadow: none;
+    }
+
+
+    section p {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        margin: 0.7rem 0;
+        text-align: left;
+        align-items: baseline;
+    }
+
+    p strong {
+        text-align: right;
+    }
+
+    .weather-svg img {
+        display: block;
+        margin: 0 auto;
+
+    }
+
+}

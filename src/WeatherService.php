@@ -31,7 +31,7 @@
                 'temperature' => $weather['current']['temp_c'],
                 'description' => $weather['current']['condition']['text'],
                 'humidity' => $weather['current']['humidity'],
-                'cloud' => $weather['current']['uv']
+                'windSpeed' => $weather['current']['wind_kph']
             ];
         }
     }

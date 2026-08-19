@@ -2,14 +2,20 @@
    require_once 'vendor/autoload.php';
    use Dombe\WeatherApp\WeatherService;
 
-   $weatherService = new WeatherService();
+   header('Content-Type:application/json');
 
-   $city = $argv['1'];
-   $weather = $weatherService->getWeather($city);
 
-   echo "Weather in {$weather['city']}:\n";
-   echo "Temperature: {$weather['temperature']}°C\n";
-   echo "Description: {$weather['description']}\n";
-   echo "Humidity: {$weather['humidity']}%\n";
-   echo "Cloud Percentage: {$weather['cloud']}";
+   $city = $_GET['city'] ?? 'Harare';
+   
+   try{
+      $weatherService = new WeatherService();
+      $weather = $weatherService->getWeather($city);
+      echo (json_encode($weather));
+   }catch(\Exception $e){
+      http_response_code(500);
+      echo json_encode([
+         'error' => 'Unable to fetch data',
+         'debug'  => $e->getMessage()
+      ]);
+   }
 ?>
