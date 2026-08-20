@@ -10,7 +10,7 @@ body {
     grid-template-rows: auto 1fr auto;
     background-color: rgb(28, 28, 40);
     color: white;
-    font-family:  serif;
+    font-family:  sans-serif;
     min-height: 100vh;
 }
 
@@ -18,11 +18,6 @@ header {
     text-align: center;
     padding: 1rem 0;
 }
-
-header h1 {
-    font-family: "Archivo Black", sans-serif;
-}
-
 header h1::first-letter {
     text-transform: uppercase;
 }
@@ -33,9 +28,8 @@ header h1::first-letter {
 .card{
     background-color: rgb(35,33,64);
     display: grid;
-    flex-direction: column;
-    grid-template-columns:2fr 3fr;
-    width: 30rem;
+    grid-template-rows:auto 1fr 1fr;
+    width: 23rem;
     border-radius: 10px;
     padding-bottom: 1rem;
 }
@@ -44,40 +38,45 @@ header h1::first-letter {
     background-color: rgb(35,27,44);
     padding: .7rem;
     border-radius: 10px 10px 0 0;
-    grid-column: 1/3;
     text-align: center;
     font-size: 1.7rem;
 }
 
 .summary{
-    grid-column: 1/1;
     padding: .3rem 0;
     display: flex;
+    justify-content: center;
     flex-direction: row;
+
 }
-.summary span{
-    font-size: 3rem;
-    width:3.4rem;
-    height:3.4rem;
+#condition{
     display: flex;
-    align-self: center;
-    justify-self: center ;
     justify-content: center;
     align-items: center;
-}
-.summary figure{
-    width: 9rem;
-    text-align: center;
-}
-figure img{
-    object-fit: cover;
-    width: 8.7rem;
-    height: 8.7rem;
-}
-figure figcaption{
+    flex-direction: row;
+    font-size: 1.3rem;
+    padding-top: .7rem;
     font-weight: bold;
 }
+#temperature{
+    margin-left: .5rem;
+}
+figure img{
+    width: 9rem;
+    object-fit: cover;
+}
 
-.details{
-    padding: 1rem .7rem;
+.details p{
+    margin: .3rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    column-gap: .3rem;
+    font-size: 1.2rem;
+    letter-spacing: 1.3px;
+
+}
+.details p strong{
+    display:flex;
+    justify-content: flex-end;    
 }

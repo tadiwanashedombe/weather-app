@@ -27,10 +27,17 @@
             $weather = json_decode($response->getBody()->getContents(), true);
 
             return [
+
                 'city' => $weather['location']['name'],
-                'temperature' => $weather['current']['temp_c'],
+                
+                'weather_icon' => $weather['current']['condition']['icon'],
                 'description' => $weather['current']['condition']['text'],
+                'temperature' => $weather['current']['temp_c'],
+                
+                'feels_like' => $weather['current']['feelslike_c'],
                 'humidity' => $weather['current']['humidity'],
+                'pressure' => $weather['current']['pressure_mb'],
+                'uv' => $weather['current']['uv'],
                 'windSpeed' => $weather['current']['wind_kph']
             ];
         }

@@ -1,10 +1,18 @@
 // select elements to edit
 const year = document.querySelector("#currentyear");
-let windchill =  document.querySelector("#windchill");
-let tempID = document.querySelector("#temperature");
-let windID = document.querySelector("#wind");
+
 let cityName = document.querySelector("#cityName");
-let condition = document.querySelector("#condition");
+
+let weatherIcon = document.querySelector("#weather-icon");
+let description = document.querySelector("#description");
+let tempID = document.querySelector("#temperature");
+
+let feelsLike = document.querySelector("#feels-like");
+let humidity = document.querySelector("#humidity");
+let pressure = document.querySelector("#pressure");
+let uv = document.querySelector("#uv");
+let windID = document.querySelector("#wind");
+let windchill =  document.querySelector("#windchill");
 
 function calculateWindChill (temp, windSpeed){
     if(temp <= 10 && windSpeed > 4.8){
@@ -27,12 +35,19 @@ async function loadWeather(city = "Harare") {
         }
 
         const chill = calculateWindChill(data.temperature, data.windSpeed);
+        
         cityName.innerHTML = data.city;
-        tempID.innerHTML = `${data.temperature}<sup>0</sup>c`;
-        windID.innerHTML = `${data.windSpeed} km/h`;
-        windchill.innerHTML = chill !== "N/A" ? `${chill}<sup>0</sup>C`: "N/A";
-        condition.innerHTML = data.description;
 
+        weatherIcon.src = data.weather_icon;
+        description.innerHTML = data.description;
+        tempID.innerHTML = `${data.temperature}&deg;C`;
+
+        feelsLike.innerHTML = `${data.feels_like}&deg;C`;
+        humidity.innerHTML = `${data.humidity}%`;
+        pressure.innerHTML = `${data.pressure} hPa`;
+        uv.innerHTML = data.uv;
+        windID.innerHTML = `${data.windSpeed} km/h`;
+        windchill.innerHTML = chill !== "N/A" ? `${chill}$deg;C`: "N/A";
     }
     catch(err){
         windchill.textContent = "Unable to fetch weather data";
