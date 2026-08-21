@@ -47,7 +47,7 @@ async function loadWeather(city = "Harare") {
         pressure.innerHTML = `${data.pressure} hPa`;
         uv.innerHTML = data.uv;
         windID.innerHTML = `${data.windSpeed} km/h`;
-        windchill.innerHTML = chill !== "N/A" ? `${chill}$deg;C`: "N/A";
+        windchill.innerHTML = chill !== "N/A" ? `${chill}&deg;C`: "N/A";
     }
     catch(err){
         windchill.textContent = "Unable to fetch weather data";
