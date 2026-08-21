@@ -2,17 +2,12 @@
     "name": "dombe/weather-app",
     "description": "php application",
     "require": {
-        "guzzlehttp/guzzle": "^8.0"
+        "guzzlehttp/guzzle": "^8.0",
+        "vlucas/phpdotenv": "^5.6"
     },
     "autoload": {
         "psr-4": {
             "Dombe\\WeatherApp\\": "src/"
         }
-    },
-    "authors": [
-        {
-            "name": "tadiwanashedombe",
-            "email": "dombeseant@gmail.com"
-        }
-    ]
+    }
 }

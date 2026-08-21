@@ -2,6 +2,8 @@
    require_once 'vendor/autoload.php';
    use Dombe\WeatherApp\WeatherService;
 
+   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+   $dotenv->load();
    header('Content-Type:application/json');
 
 
