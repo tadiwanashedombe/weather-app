@@ -1,23 +1,25 @@
 <?php
-   require_once 'vendor/autoload.php';
-   use Dombe\WeatherApp\WeatherService;
+require_once 'vendor/autoload.php';
 
-   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-   $dotenv->load();
-   header('Content-Type:application/json');
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
 
+use Dombe\WeatherApp\WeatherService;
 
-   $city = $_GET['city'] ?? 'Harare';
-   
-   try{
-      $weatherService = new WeatherService();
-      $weather = $weatherService->getWeather($city);
-      echo (json_encode($weather));
-   }catch(\Exception $e){
-      http_response_code(500);
-      echo json_encode([
-         'error' => 'Unable to fetch data',
-         'debug'  => $e->getMessage()
-      ]);
-   }
-?>
+header('Content-Type: application/json');
+
+$city = $_GET['city'] ?? 'Harare';
+
+try {
+    $weatherService = new WeatherService();
+    $weather = $weatherService->getWeather($city);
+    echo json_encode($weather);
+} catch (\Exception $e) {
+    http_response_code(500);
+    echo json_encode([
+        'error' => 'Unable to fetch data',
+        'debug' => $e->getMessage()
+    ]);
+}
