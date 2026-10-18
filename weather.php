@@ -44,6 +44,11 @@ try {
 } catch (\GuzzleHttp\Exception\ConnectException $e) {
     http_response_code(502);
     echo json_encode(['error' => 'Could not connect to the weather service. Please try again later.']);
+}
+ catch (\GuzzleHttp\Exception\TransferException $e) {
+    error_log($e->getMessage());
+    http_response_code(502);
+    echo json_encode(['error' => 'The weather service could not complete the request. Please try again.']);
 } catch (\RuntimeException $e) {
     http_response_code(500);
     echo json_encode([

@@ -29,7 +29,6 @@ body {
 
 header {
     position: relative;
-    min-width: 100%;
 }
 
 header h1 {
@@ -99,12 +98,12 @@ input[type="search"]:focus{
 }
 
 .card {
+    width: 25rem;
     background: var(--bg-2);
     border: 1px solid var(--line);
     box-shadow: 0 20px 40px var(--shadow);
     display: grid;
     grid-template-rows: auto 1fr 1fr;
-    width: clamp(25rem, 100rem, 25rem);
     border-radius: 18px;
     padding-bottom: 1rem;
     overflow: hidden;

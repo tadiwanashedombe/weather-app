@@ -24,7 +24,7 @@
             <label class="visually-hidden" for="city-input">
                 <img src="images/search.svg" alt="Search icon" width="20" height="20">
             </label>
-                <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off" required value="">
+                <input id="city-input" type="search" placeholder="Enter a city" autocomplete="off" required>
             </span>
             <button id="search-button" type="submit"></button>
         </form>
@@ -32,7 +32,7 @@
     <p id="weather-error" class="weather-error" role="alert" hidden></p>
     <p id="weather-status" class="weather-status" role="status" aria-live="polite"></p>
     <main>
-        <div class="weather">
+        <section class="weather">
             <div class="card">
                 <h2 class="date">Today</h2>
                 <div class="summary">
@@ -63,7 +63,7 @@
 
                 </div>
             </div>
-        </div>
+        </section>
 
         <section class="forecast-panel" aria-labelledby="forecast-heading">
             <h3 id="forecast-heading">3-Day Forecast</h3>
@@ -71,9 +71,7 @@
         </section>
     </main>
     <footer>
-        <p>
-            ©️<span id="currentyear"></span> Tadiwanashe Dombe - Zimbabwe
-        </p>
+        <p>©️<span id="currentyear"></span> WeatherWizard</p>
     </footer>
 </body>
 
