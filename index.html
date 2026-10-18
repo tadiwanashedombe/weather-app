@@ -18,9 +18,15 @@
 
 <body>
     <header>
-        <!-- remov this afetr css is complete -->
         <h1 id="cityName"></h1>
+        <form id="city-search" class="city-search" role="search">
+            <label class="visually-hidden" for="city-input">Search weather by city</label>
+            <input id="city-input" name="city" type="search" placeholder="Enter a city" autocomplete="off" required>
+            <button id="search-button" type="submit">Search</button>
+        </form>
     </header>
+    <p id="weather-error" class="weather-error" role="alert" hidden></p>
+    <p id="weather-status" class="weather-status" role="status" aria-live="polite"></p>
     <main>
         <div class="weather">
             <div class="card">
@@ -53,40 +59,12 @@
 
                 </div>
             </div>
-            <!-- 
-            <div class="card">
-                <h2 class="date">Today</h2>
-                <div class="summary">
-                    <figure>
-                        <img src="images/weather.svg" alt="weather icon" class="weather-icon" width="130" height="110">
-                        <figcaption class="description"> Description</figcaption>
-                    </figure>
-                    <span class="conition">
-                        25*C
-                    </span>
-
-                </div>
-
-                <div class="details">
-
-                    <p><strong>Feels like: </strong><span id="feels-like"></span></p>
-                    
-                    <p><strong>Humidity: </strong><span id="humidity"></span></p>
-
-                    <p><strong>Pressure: </strong><span id="pressure"></span></p>
-
-                    <p><strong>Temperature: </strong><span id="temperature"></span></p>
-
-                    <p><strong>UV: </strong><span id="uv"></span></p>
-
-                    <p><strong>Wind: </strong><span id="wind"></span></p>
-
-                    <p><strong>Wind Chill: </strong><span id="windchill"></span></p>
-
-                </div>
-            </div> -->
-
         </div>
+
+        <section class="forecast-panel" aria-labelledby="forecast-heading">
+            <h3 id="forecast-heading">3-Day Forecast</h3>
+            <div id="forecast" class="forecast" aria-live="polite"></div>
+        </section>
     </main>
     <footer>
         <p>
