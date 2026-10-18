@@ -1,7 +1,9 @@
 @media only screen and (max-width: 640px) {
     header {
+        display: flex; 
         flex-direction: column;
         align-items: stretch;
+        gap: 0.75rem;
         padding: 1.2rem 1rem 0.6rem;
     }
 
@@ -11,12 +13,33 @@
     }
 
     .city-search {
+        position: static;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        margin: 0 auto;
+    }
+
+    .search {
         width: 100%;
+        justify-content: center;
+    }
+
+    .search input[type="search"] {
+        flex: 1;                   
+        min-width: 0;               
     }
 
     .weather {
         text-align: center;
         box-shadow: none;
+        margin: 0.7rem 0.5rem 2rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 25rem;
     }
 
     .forecast-panel {

@@ -135,6 +135,6 @@ searchForm.addEventListener("submit", (event) => {
 });
 
 const initialCity = new URLSearchParams(window.location.search).get("city")?.trim() || "Harare";
-cityInput.value = initialCity;
+cityInput.value = "";
 loadWeather(initialCity);
 year.textContent = new Date().getFullYear();

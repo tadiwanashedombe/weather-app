@@ -1,6 +1,6 @@
 :root {
-    --bg-1: #071a2c;
-    --bg-2: #0f2e46;
+    --bg-1: #1b1f22;
+    --bg-2: #1b1f22;
     --panel: rgba(19, 32, 51, 0.88);
     --panel-alt: rgba(23, 44, 68, 0.92);
     --card-header: rgba(24, 59, 84, 0.9);
@@ -8,7 +8,7 @@
     --secondary: #b98cff;
     --text: #edf6ff;
     --muted: #d5e7fb;
-    --line: rgba(160, 195, 234, 0.24);
+    --line: rgba(69, 72, 76, 0.99);
     --shadow: rgba(2, 6, 23, 0.45);
 }
 
@@ -28,16 +28,14 @@ body {
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.4rem clamp(1rem, 4vw, 3rem) 0.6rem;
+    position: relative;
+    min-width: 100%;
 }
 
 header h1 {
     font-size: clamp(2.1rem, 5vw, 3.2rem);
     letter-spacing: 0.08em;
+    text-align: center;
 }
 
 header h1::first-letter {
@@ -45,61 +43,36 @@ header h1::first-letter {
 }
 
 .city-search {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+#search-button{
+    display: none;
+}
+.search {
     display: flex;
-    gap: 0.5rem;
-    width: min(24rem, 45vw);
-}
-
-.city-search input {
-    min-width: 0;
-    flex: 1;
     border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0.75rem 0.9rem;
-    background: var(--panel);
-    color: var(--text);
+    padding:.16em .3rem;
+    align-items: center;
+    border-radius: 20px;
+    background-color:#e5e4e4;
+}
+input[type="search"]{
+    border: none;
+    padding: .4rem;
+    background-color: transparent;
     font: inherit;
+    color: #111111;
+    font-weight: 400;
 }
-
-.city-search input::placeholder {
-    color: var(--muted);
-    opacity: 0.8;
+input[type="search"]:focus{
+    outline: none;
 }
-
-.city-search input:focus-visible,
-.city-search button:focus-visible {
-    outline: 2px solid var(--primary);
+.search:focus-within {
+    outline: 1px solid var(--primary);
     outline-offset: 2px;
 }
-
-.city-search button {
-    border: 0;
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    background: var(--primary);
-    color: #071a2c;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.city-search button:disabled {
-    cursor: wait;
-    opacity: 0.7;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 .weather-error,
 .weather-status {
     width: min(60rem, calc(100% - 2rem));
@@ -126,12 +99,12 @@ header h1::first-letter {
 }
 
 .card {
-    background: linear-gradient(180deg, var(--panel), var(--panel-alt));
+    background: var(--bg-2);
     border: 1px solid var(--line);
     box-shadow: 0 20px 40px var(--shadow);
     display: grid;
     grid-template-rows: auto 1fr 1fr;
-    width: min(23rem, 100%);
+    width: clamp(25rem, 100rem, 25rem);
     border-radius: 18px;
     padding-bottom: 1rem;
     overflow: hidden;
@@ -212,7 +185,6 @@ main {
 
 .forecast-panel {
     width: min(60rem, calc(100% - 2rem));
-    background: linear-gradient(180deg, rgba(15, 30, 49, 0.88), rgba(23, 44, 68, 0.88));
     border: 1px solid var(--line);
     border-radius: 18px;
     box-shadow: 0 20px 40px var(--shadow);
@@ -223,7 +195,6 @@ main {
     text-align: center;
     font-size: 1.3rem;
     margin-bottom: 0.9rem;
-    color: var(--primary);
 }
 
 .forecast {
