@@ -1,8 +1,8 @@
 // select elements to edit
 const year = document.querySelector("#currentyear");
 const cityName = document.querySelector("#cityName");
-const weatherIcon = document.querySelector("#weather-icon");
 const description = document.querySelector("#description");
+const figure = document.querySelector(".figure")
 const tempID = document.querySelector("#temperature");
 const feelsLike = document.querySelector("#feels-like");
 const humidity = document.querySelector("#humidity");
@@ -17,12 +17,23 @@ const searchButton = document.querySelector("#search-button");
 const weatherError = document.querySelector("#weather-error");
 const weatherStatus = document.querySelector("#weather-status");
 
-function buildWeatherIconUrl(icon) {
-    if (!icon) {
-        return "";
+function renderWeatherIcon(iconUrl) {
+    let img = figure.querySelector("#weather-icon");
+    if (!iconUrl) {
+        img?.remove();
+        return;
     }
 
-    return icon.startsWith("//") ? `https:${icon}` : icon;
+    if (!img) {
+        img = document.createElement("img");
+        img.setAttribute("alt", "Weather Icon");
+        img.setAttribute("id", "weather-icon");
+        img.setAttribute("width", "130");
+        img.setAttribute("height", "130");
+        figure.append(img);
+    }
+
+    img.src = iconUrl;
 }
 
 function renderForecast(days = []) {
@@ -45,7 +56,7 @@ function renderForecast(days = []) {
 
         const icon = document.createElement("img");
         icon.className = "forecast-icon";
-        icon.src = buildWeatherIconUrl(day.icon);
+        icon.src = day.icon || "";
         icon.alt = day.description || "Forecast";
 
         const forecastDescription = document.createElement("div");
@@ -108,7 +119,7 @@ async function loadWeather(city = "Harare") {
         
         cityName.textContent = data.city;
 
-        weatherIcon.src = buildWeatherIconUrl(data.weather_icon);
+        renderWeatherIcon(data.weather_icon);
         description.textContent = data.description;
         tempID.textContent = `${data.temperature}°C`;
 
