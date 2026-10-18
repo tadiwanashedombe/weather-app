@@ -134,5 +134,7 @@ searchForm.addEventListener("submit", (event) => {
     loadWeather(cityInput.value);
 });
 
-loadWeather();
+const initialCity = new URLSearchParams(window.location.search).get("city")?.trim() || "Harare";
+cityInput.value = initialCity;
+loadWeather(initialCity);
 year.textContent = new Date().getFullYear();

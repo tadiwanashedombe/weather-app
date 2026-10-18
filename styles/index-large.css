@@ -20,9 +20,8 @@
 
 body {
     background-color: var(--bg-1);
-    display: grid;
-    flex-direction: row;
-    grid-template-rows: auto 1fr auto;
+    display: flex;
+    flex-direction: column;
     color: var(--text);
     font-family: sans-serif;
     min-height: 100vh;
@@ -106,6 +105,10 @@ header h1::first-letter {
     width: min(60rem, calc(100% - 2rem));
     margin: 0.5rem auto;
     text-align: center;
+}
+
+.weather-status:empty {
+    display: none;
 }
 
 .weather-error {
@@ -204,6 +207,7 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    flex: 1;
 }
 
 .forecast-panel {
@@ -270,4 +274,5 @@ footer {
     text-align: center;
     padding: 1rem 0 1.5rem;
     color: var(--muted);
+    margin-top: auto;
 }
