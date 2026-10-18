@@ -19,13 +19,24 @@
         box-shadow: none;
     }
 
-    section p {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+    .forecast-panel {
+        width: calc(100% - 1rem);
+        padding: 0.8rem;
+    }
+
+    .forecast {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.5rem;
-        margin: 0.7rem 0;
-        text-align: left;
-        align-items: baseline;
+    }
+
+    .forecast-item {
+        min-width: 0;
+        padding: 0.65rem 0.4rem;
+        overflow-wrap: anywhere;
+    }
+
+    .forecast-desc {
+        font-size: 0.75rem;
     }
 
     p strong {
