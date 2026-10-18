@@ -47,7 +47,7 @@ function renderForecast(days = []) {
         return;
     }
 
-    days.slice(0, 7).forEach((day) => {
+    days.slice(0, 3).forEach((day) => {
         const item = document.createElement("article");
         item.className = "forecast-item";
         const dayName = document.createElement("div");
