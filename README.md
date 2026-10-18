@@ -2,7 +2,7 @@
 
 Search any city and get current conditions plus a multi-day forecast.
 
-**[Live demo →](https://weather-app-td-95f5.vercel.app)**
+**[Live demo →](https://weather-app-psi-lemon-15.vercel.app/)**
 
 ![WeatherWizard screenshot](images/screenshot.png)
 
