@@ -73,16 +73,16 @@ function renderForecast(days = []) {
     });
 }
 
-function calculateWindChill (temp, windSpeed){
-    if(temp <= 10 && windSpeed > 4.8){
-        const windchill = 13.12 + 0.6215*temp-11.37*Math.pow(windSpeed,0.16)+0.3965 * temp *Math.pow(windSpeed,0.16)
+function calculateWindChill(temp, windSpeed) {
+    if (temp <= 10 && windSpeed > 4.8) {
+        const windchill = 13.12 + 0.6215 * temp - 11.37 * Math.pow(windSpeed, 0.16) + 0.3965 * temp * Math.pow(windSpeed, 0.16)
 
         return windchill.toFixed(1);
-    } else{
+    } else {
         return "N/A";
-    }   
+    }
 }
-async function loadWeather(city = "Harare") {
+async function loadWeather(city) {
     const requestedCity = city.trim();
     if (!requestedCity) {
         weatherError.textContent = "Enter a city name to search.";
@@ -116,7 +116,7 @@ async function loadWeather(city = "Harare") {
         }
 
         const chill = calculateWindChill(data.temperature, data.windSpeed);
-        
+
         cityName.textContent = data.city;
 
         renderWeatherIcon(data.weather_icon);
@@ -128,7 +128,7 @@ async function loadWeather(city = "Harare") {
         pressure.textContent = `${data.pressure} hPa`;
         uv.textContent = data.uv;
         windID.textContent = `${data.windSpeed} km/h`;
-        windchill.textContent = chill !== "N/A" ? `${chill}°C`: "N/A";
+        windchill.textContent = chill !== "N/A" ? `${chill}°C` : "N/A";
         renderForecast(data.forecast || []);
         weatherStatus.textContent = "";
     } catch (error) {
@@ -145,7 +145,25 @@ searchForm.addEventListener("submit", (event) => {
     loadWeather(cityInput.value);
 });
 
-const initialCity = new URLSearchParams(window.location.search).get("city")?.trim() || "Harare";
+
+const initialCity = new URLSearchParams(window.location.search).get("city")?.trim();
 cityInput.value = "";
-loadWeather(initialCity);
+
+if (initialCity) {
+    loadWeather(initialCity);
+} else {
+    navigator.geolocation.getCurrentPosition(
+        ({ coords }) => {
+            const coordinates = `${coords.latitude},${coords.longitude}`;
+            loadWeather(coordinates);
+        },
+        (error) => {
+            console.error("Could not get your location:", error.message);
+            // loadWeather("Harare")
+        }
+    );
+}
 year.textContent = new Date().getFullYear();
+
+
+// -18.0088, 31.0584
