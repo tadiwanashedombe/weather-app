@@ -11,6 +11,7 @@ Search any city and get current conditions plus a multi-day forecast.
 - Multi-day forecast
 - Clear error handling for invalid cities and service outages
 - Accessible UI (ARIA live regions, keyboard-friendly search)
+- Uses Geolocation API to auto search the current location
 
 ## How it works
 Browser → `weather.php` (PHP endpoint) → WeatherAPI.com

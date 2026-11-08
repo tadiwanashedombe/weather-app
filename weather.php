@@ -10,7 +10,7 @@ use Dombe\WeatherApp\WeatherService;
 
 header('Content-Type: application/json');
 
-$city = $_GET['city'] ?? 'Harare';
+$city = $_GET['city'];
 
 if (!is_string($city) || trim($city) === '') {
     http_response_code(400);
